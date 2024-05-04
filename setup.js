@@ -2,7 +2,7 @@ let inputHoraLaPaz;
 
 function setup() {
     createCanvas(800, 400);
-    background("green");
+    background("white");
     angleMode(DEGREES);
 
     inputHoraLaPaz = createInput('11:59', 'time');

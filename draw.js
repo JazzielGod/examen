@@ -11,7 +11,6 @@ function updateHoraLaPaz() {
 
 function draw() {
   segundoLaPaz++;
-
   if (segundoLaPaz === 60) {
     segundoLaPaz = 0;
     minutoLaPaz++;
@@ -23,6 +22,8 @@ function draw() {
       }
     }
   }
+
+  background("white");
 
   inputHoraLaPaz.value(`${horaLaPaz.toString().padStart(2, '0')}:${minutoLaPaz.toString().padStart(2, '0')}`);
 
