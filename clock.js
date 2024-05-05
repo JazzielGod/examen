@@ -6,6 +6,8 @@ const HOUR_HAND_THICKNESS = 4;
 const MINUTE_HAND_THICKNESS = 2;
 const SECOND_HAND_THICKNESS = 1;
 
+//corregir el reloj de la hr méxico
+//y ver la hora esp barceloca
 function drawClock(x, y, hora, minuto, segundo) {
     // Circulo
     midpointCircle(x, y);
@@ -16,6 +18,8 @@ function drawClock(x, y, hora, minuto, segundo) {
     // Hand Horas
     let anguloHora = map(hora, 0, 12, 0, 360);
     drawHand(HOUR_HAND_LENGTH, anguloHora, HOUR_HAND_THICKNESS, color("black"));
+    //ecuacionPuntoPendiente(0,0, HOUR_HAND_LENGTH * cos(anguloHora), HOUR_HAND_LENGTH * sin(anguloHora));
+
 
     // Hand Minutos
     let anguloMinuto = map(minuto, 0, 60, 0, 360);
@@ -23,8 +27,8 @@ function drawClock(x, y, hora, minuto, segundo) {
 
     // Hand segundos
     let anguloSegundo = map(segundo, 0, 60, 0, 360);
-
     drawHand(SECOND_HAND_LENGTH, anguloSegundo, SECOND_HAND_THICKNESS, color("red"));
+
 
     pop();
 }
@@ -35,6 +39,8 @@ function drawHand(length, angle, thickness, color) {
     line(0, 0, length * cos(angle), length * sin(angle));
 }
 
+
+//Ecuación punto medio del círculo
 function midpointCircle(xc, yc) {
     let x = 0;
     let y = CLOCK_RADIUS;
@@ -60,4 +66,25 @@ function midpointCircle(xc, yc) {
             ellipse(xc + pointX, yc + pointY, 2, 2);
         }
     }
+}
+
+//Ecuación punto pendiente
+function ecuacionPuntoPendiente(x1, y1, x2, y2) {
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+
+    const m = dy / dx;
+    const b = y1 - m * x1;
+
+    let x = x1;
+    let y = y1; 
+
+    point(x,y);
+
+    while (x < x2) {
+        x += 0.01;
+        y = m * x + b;
+        point(x, y);
+    }
+
 }
