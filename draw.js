@@ -35,6 +35,6 @@ function draw() {
     drawClockLaPaz(400, height / 2, horaCDMX, minutoLaPaz, segundoLaPaz, "Ciudad de México");
 
     // Barcelona
-    let horaBarcelona = (horaLaPaz + 8 + 24) % 24;
+    let horaBarcelona = (horaLaPaz + 9  + 24) % 24;
     drawClockLaPaz(650, height / 2, horaBarcelona, minutoLaPaz, segundoLaPaz, "Barcelona");
 }

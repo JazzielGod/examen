@@ -6,7 +6,7 @@ const HOUR_HAND_THICKNESS = 1.5;
 const MINUTE_HAND_THICKNESS = 0.5;
 const SECOND_HAND_THICKNESS = 0;
 
-function drawClockLaPaz(x, y, hora, minuto, segundo) {
+function drawClockLaPaz(x, y, hora, minuto, segundo, ciudad) {
     // Circulo
     puntoMedio(x, y);
     push();
@@ -26,6 +26,11 @@ function drawClockLaPaz(x, y, hora, minuto, segundo) {
     drawHand(SECOND_HAND_LENGTH, anguloSegundo, SECOND_HAND_THICKNESS, color("red"));
 
     pop();
+
+    fill(0);
+    textSize(20);
+    textAlign(CENTER, CENTER);
+    text(ciudad, x, y + CLOCK_RADIUS + 25);
 }
 
 function drawHand(length, angle, thickness, color) {
