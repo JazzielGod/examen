@@ -24,5 +24,5 @@ function draw() {
 
     // Barcelona
     let horaBarcelona = (horaLaPaz + 9 + 24) % 24;
-    drawClockCDMX(650, height / 2, horaBarcelona, minutoLaPaz, segundoLaPaz, "Barcelona");
+    drawClockBarcelona(650, height / 2, horaBarcelona, minutoLaPaz, segundoLaPaz, "Barcelona");
 }

@@ -7,11 +7,11 @@ function drawClockCDMX(x, y, hora, minuto, segundo, ciudad) {
 
     // Manecilla de las horas
     let anguloHora = map(hora % 12, 0, 12, 0, 360) - 90;
-    drawHandDDA(HOUR_HAND_LENGTH, anguloHora, HOUR_HAND_THICKNESS, color("black"));
+    drawHandDDA(HOUR_HAND_LENGTH, anguloHora, HOUR_HAND_THICKNESS+1.5, color("black"));
 
     // Manecilla de los minutos
     let anguloMinuto = map(minuto, 0, 60, 0, 360) - 90;
-    drawHandDDA(MINUTE_HAND_LENGTH, anguloMinuto, MINUTE_HAND_THICKNESS, color("black"));
+    drawHandDDA(MINUTE_HAND_LENGTH, anguloMinuto, MINUTE_HAND_THICKNESS+1, color("black"));
 
     // Manecilla de los segundos
     let anguloSegundo = map(segundo, 0, 60, 0, 360) - 90;
