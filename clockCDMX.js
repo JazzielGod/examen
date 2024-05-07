@@ -30,5 +30,5 @@ function drawClockCDMX(x, y, hora, minuto, segundo) {
 
 function drawHand(length, angle, thickness, color) {
     stroke(color);
-    DDA(0, 0, length * cos(angle), length * sin(angle), thickness);
+    puntoPendiente(0, 0, length * cos(angle), length * sin(angle), thickness);
 }

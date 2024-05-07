@@ -1,4 +1,4 @@
-const CLOCK_RADIUS = 100;
+const CLOCK_RADIUS = 115;
 const HOUR_HAND_LENGTH = 50;
 const MINUTE_HAND_LENGTH = 80;
 const SECOND_HAND_LENGTH = 90;
@@ -11,18 +11,18 @@ function drawClockLaPaz(x, y, hora, minuto, segundo) {
     puntoMedio(x, y);
     push();
     translate(x, y);
-    rotate(-90);
+    drawNumbers();
 
-    // Hand Horas
-    let anguloHora = map(hora, 0, 12, 0, 360);
+    // Manecilla de las horas
+    let anguloHora = map(hora % 12, 0, 12, 0, 360) - 90;
     drawHand(HOUR_HAND_LENGTH, anguloHora, HOUR_HAND_THICKNESS, color("black"));
 
-    // Hand Minutos
-    let anguloMinuto = map(minuto, 0, 60, 0, 360);
+    // Manecilla de los minutos
+    let anguloMinuto = map(minuto, 0, 60, 0, 360) - 90;
     drawHand(MINUTE_HAND_LENGTH, anguloMinuto, MINUTE_HAND_THICKNESS, color("black"));
 
-    // Hand segundos
-    let anguloSegundo = map(segundo, 0, 60, 0, 360);
+    // Manecilla de los segundos
+    let anguloSegundo = map(segundo, 0, 60, 0, 360) - 90;
     drawHand(SECOND_HAND_LENGTH, anguloSegundo, SECOND_HAND_THICKNESS, color("red"));
 
     pop();
@@ -31,4 +31,15 @@ function drawClockLaPaz(x, y, hora, minuto, segundo) {
 function drawHand(length, angle, thickness, color) {
     stroke(color);
     puntoPendiente(0, 0, length * cos(angle), length * sin(angle), thickness);
+}
+
+function drawNumbers() {
+    textSize(18);
+    textAlign(CENTER, CENTER);
+    for (let i = 1; i <= 12; i++) {
+        let angle = map(i, 0, 12, 0, 360) - 90;
+        let x = (CLOCK_RADIUS-15) * cos(angle);
+        let y = (CLOCK_RADIUS-15) * sin(angle);
+        text(i, x, y);
+    }
 }
